@@ -1,29 +1,3 @@
-﻿@model IEnumerable<CPRG214.MVC.AssetTracking.Models.AssetViewModel>
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h3 class="display-4">Greetings, administrator.</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.TagNumber)</th>
-                <th>@Html.DisplayNameFor(model => model.Description)</th>
-                <th>@Html.DisplayNameFor(model => model.AssetType)</th>
-                <th>@Html.DisplayNameFor(model => model.SerialNumber)</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.TagNumber)</td>
-                <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                <td>@Html.DisplayFor(modelItem => item.AssetType)</td>
-                <td>@Html.DisplayFor(modelItem => item.SerialNumber)</td>
-            </tr>
-            }
-        </tbody>
-    </table>
-</div>

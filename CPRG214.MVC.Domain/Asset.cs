@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CPRG214.MVC.Domain
 {
-    [Table("RentalProperty")]
+    [Table("Assets")]
     public class Asset
     {
         [Required]

@@ -8,6 +8,7 @@ namespace CPRG214.MVC.AssetTracking.Models
 {
     public class AssetViewModel
     {
+        public int Id { get; set; }
         [Display(Name ="Asset Type")]
         public string AssetType { get; set; }
         [Display(Name = "Tag Number")]

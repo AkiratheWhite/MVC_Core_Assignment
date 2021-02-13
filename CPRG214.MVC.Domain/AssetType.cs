@@ -11,6 +11,7 @@ namespace CPRG214.MVC.Domain
     {
         [Required]
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
 
         //Navigation property

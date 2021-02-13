@@ -9,7 +9,7 @@ namespace CPRG214.MVC.Data
         public AssetContext() : base() { }
 
         public DbSet<Asset> Assets { get; set; }
-        public AssetType AssetTypes { get; set; }
+        public DbSet<AssetType> AssetTypes { get; set; }
 
         //Sets connection string to SQL Server.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

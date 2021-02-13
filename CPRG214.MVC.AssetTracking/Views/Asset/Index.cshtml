@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CPRG214.MVC.AssetTracking.Models.AssetViewModel>
+@{
+    var assetTypes = new SelectList(ViewBag.AssetTypes, "Id", "Name");
+    ViewData["Title"] = "Index";
+}
+
+<dl class="row col-6">
+    <dt class="col-6">Select the Asset Type</dt>
+    <dd class="col-6">
+        <select id="AssetLookup" asp-items="assetTypes"></select>
+    </dd>
+</dl>
+
+<div id="AssetDisplay">
+    @await Component.InvokeAsync("AssetsByType", 0)
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(FilterByType);
+
+        function FilterByType() {
+            $("#AssetLookup").change(function () {
+                var assetTypeID = $("#AssetLookup").val();
+
+                $.ajax(
+                    {
+                        method: 'GET',
+                        url: '/Asset/GetAssetsByType',
+                        data: { id: assetTypeID }
+                    }).done(function (result, statusText, xhdr) {
+                        $("#AssetDisplay").html(result);
+                    });//End Ajax
+            }); //End "change" function
+        }
+    </script>
+}
+

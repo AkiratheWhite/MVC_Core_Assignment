@@ -21,22 +21,7 @@ namespace CPRG214.MVC.AssetTracking.Controllers
 
         public IActionResult Index()
         {
-            //Retrieves all assets from asset table.
-            var assets = AssetManager.GetAllAssets();
-
-            //Creates new AssetViewModel list.
-            var viewModels = (from asset in assets
-                              select new AssetViewModel
-                              {
-                                  AssetType = asset.AssetType.Name,
-                                  Description = asset.Description,
-                                  Manufacturer = asset.Manufacturer,
-                                  Model = asset.Model,
-                                  SerialNumber = asset.SerialNumber,
-                                  TagNumber = asset.TagNumber
-                              }).ToList();
-
-            return View(viewModels);
+            return View();
         }
 
         public IActionResult Privacy()
