@@ -11,12 +11,19 @@
     </dd>
 </dl>
 
+@*Renders the view component with a model of 0.*@
 <div id="AssetDisplay">
     @await Component.InvokeAsync("AssetsByType", 0)
 </div>
 
+<div>
+    <a asp-action="AddAsset">Add New Asset</a>
+    @Html.ActionLink("Add New Asset Type", "AddAssetType", "AssetType", null)
+</div>
+
 @section Scripts {
     <script>
+        //Adds event listener to element with Id "AssetLookup" when the document is ready.
         $(document).ready(FilterByType);
 
         function FilterByType() {

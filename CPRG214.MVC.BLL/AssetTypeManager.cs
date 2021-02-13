@@ -18,5 +18,11 @@ namespace CPRG214.MVC.BLL
             return assetTypes;
 
         }
+
+        public static void AddAssetType(AssetType assetType) {
+            var context = new AssetContext();
+            context.AssetTypes.Add(assetType);
+            context.SaveChanges();
+        }
     }
 }

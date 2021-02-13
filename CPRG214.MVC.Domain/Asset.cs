@@ -11,14 +11,14 @@ namespace CPRG214.MVC.Domain
         public int Id { get; set; }
         [Required]
         public int AssetTypeId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tag Number is required.")]
         public string TagNumber { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Manufacturer is required.")]
         public string Manufacturer { get; set; }
         public string Model { get; set; }
-        [Required]
+        [Required(ErrorMessage = "An asset description is required.")]
         public string Description { get; set; }
-        [Required]
+        [Required(ErrorMessage = "The asset's Serial Number is required.")]
         public string SerialNumber { get; set; }
         
         //Navigation properties

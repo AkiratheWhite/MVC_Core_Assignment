@@ -1,5 +1,6 @@
 ﻿using CPRG214.MVC.AssetTracking.Models;
 using CPRG214.MVC.BLL;
+using CPRG214.MVC.Domain;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,30 +13,47 @@ namespace CPRG214.MVC.AssetTracking.Controllers
     {
         public IActionResult Index()
         {
-            //Retrieves all assets from asset table.
-            //var assets = AssetManager.GetAllAssets();
+            //Retrieves all assets types from AssetType table.
+            var assetTypes = AssetTypeManager.GetAllAssetTypes();
 
-            ViewBag.AssetTypes = AssetTypeManager.GetAllAssetTypes();
+            //Adds a new AssetType at index 0 with an Id of 0 so that we can show all AssetTypes.
+            assetTypes.Insert(0, new Domain.AssetType { Id = 0, Name = "All Types" });
 
-            //Creates new AssetViewModel list.
-            //var viewModels = (from asset in assets
-            //                  select new AssetViewModel
-            //                  {
-            //                      Id = asset.Id,
-            //                      AssetType = asset.AssetType.Name,
-            //                      Description = asset.Description,
-            //                      Manufacturer = asset.Manufacturer,
-            //                      Model = asset.Model,
-            //                      SerialNumber = asset.SerialNumber,
-            //                      TagNumber = asset.TagNumber
-            //                  }).ToList();
-
+            //Stores information in a ViewBag to be shared with the view.
+            ViewBag.AssetTypes = assetTypes;
             return View();
         }
 
         public IActionResult GetAssetsByType(int id)
         {
             return ViewComponent("AssetsByType", id);
+        }
+
+        public IActionResult AddAsset()
+        {
+            var assetTypes = AssetTypeManager.GetAllAssetTypes();
+            ViewBag.AssetTypes = assetTypes;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddAsset(Asset asset)
+        {
+            try
+            {
+                //Attempt to add the new object to the database context.
+                AssetManager.Add(asset);
+                //If the update is successful, redirect to index.
+                return RedirectToAction("Index");
+            }
+
+            catch
+            {
+                var assetTypes = AssetTypeManager.GetAllAssetTypes();
+                ViewBag.AssetTypes = assetTypes;
+                return View();
+            }
         }
     }
 }
