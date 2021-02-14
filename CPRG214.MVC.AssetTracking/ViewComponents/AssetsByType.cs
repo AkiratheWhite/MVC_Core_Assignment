@@ -11,20 +11,32 @@ namespace CPRG214.MVC.AssetTracking.ViewComponents
 {
     public class AssetsByTypeViewComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync(int id)
+        /// <summary>
+        /// ViewComponent initialization and creation for the Asset View page.
+        /// </summary>
+        /// <param name="assetTypeId">AssetTypeID used for filtering records.</param>
+        /// <returns>Renders view component.</returns>
+        public async Task<IViewComponentResult> InvokeAsync(int assetTypeId)
         {
-            List<Asset> assets = null;
+            List<Asset> assets = null;//Initializes list to hold asset objects.
 
-            if (id == 0)
+            /*The database does not have an ID of 0 in the "AssetType" table.
+             The controller will insert a record with an ID of 0 to display all records.
+             */
+            if (assetTypeId == 0)
             {
-                assets = AssetManager.GetAllAssets();
+                assets = AssetManager.GetAllAssets(); //Gets all assets.
             }
 
             else
             {
-                assets = AssetManager.GetAssetsByType(id);
+                //Gets assets that have the same AssetType ID as the argument passed to this method.
+                assets = AssetManager.GetAssetsByType(assetTypeId); 
             }
 
+            /*From the list of assets, generate a list of AssetViewModels objects that will be sent to the ViewComponent
+             The list of records are going to update based on a DropDownList. The DropDownList will pass the assetTypeId to this method.
+             */
             var displayAssets = (from item in assets
                                  select new AssetViewModel
                                  {

@@ -1,24 +1,29 @@
 ﻿@model IEnumerable<CPRG214.MVC.AssetTracking.Models.AssetViewModel>
 @{
     var assetTypes = new SelectList(ViewBag.AssetTypes, "Id", "Name");
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "View Assets";
 }
 
-<dl class="row col-6">
-    <dt class="col-6">Select the Asset Type</dt>
-    <dd class="col-6">
-        <select id="AssetLookup" asp-items="assetTypes"></select>
-    </dd>
-</dl>
+<div class="d-flex flex-column w-100">
+    <div class="row justify-content-around m-0">
+        <a class="btn btn-primary" href="@Url.Action("AddAsset", "Asset")">Add New Asset</a>
+        <a class="btn btn-secondary" href="@Url.Action("AddAssetType", "AssetType")">Add New Asset Type</a>
+    </div>
 
-@*Renders the view component with a model of 0.*@
-<div id="AssetDisplay">
-    @await Component.InvokeAsync("AssetsByType", 0)
-</div>
+    <hr />
+    <div>
+        <dl class="row col-12 col-md-6">
+            <dt class="col-6">Select Asset Type</dt>
+            <dd class="col-6">
+                <select id="AssetLookup" asp-items="assetTypes"></select>
+            </dd>
+        </dl>
+    </div>
 
-<div>
-    <a asp-action="AddAsset">Add New Asset</a>
-    @Html.ActionLink("Add New Asset Type", "AddAssetType", "AssetType", null)
+    @*Renders the view component with a model of 0.*@
+    <div id="AssetDisplay">
+        @await Component.InvokeAsync("AssetsByType", 0)
+    </div>
 </div>
 
 @section Scripts {

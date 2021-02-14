@@ -11,7 +11,7 @@ namespace CPRG214.MVC.Domain
     {
         [Required]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "A name for the Asset Type is required.")]
         public string Name { get; set; }
 
         //Navigation property

@@ -2,20 +2,18 @@
 
 @{
     var assetTypes = new SelectList(ViewBag.AssetTypes, "Id", "Name");
-    ViewData["Title"] = "Add Asset";
+    ViewData["Title"] = "Edit Asset";
 }
-
 <div class="w-100">
-    <h3>Add a New Asset</h3>
+    <h4>Edit Asset</h4>
     <hr />
-
     <div class="col-md-6 p-0">
-        <form asp-action="AddAsset">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
-                    <label asp-for="Id" class="control-label"></label>
-                    <input asp-for="Id" class="form-control" />
-                    <span asp-validation-for="Id" class="text-danger"></span>
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
                 </div>*@
             <div class="form-group">
                 <label asp-for="AssetTypeId" class="control-label">Asset Type</label>
@@ -23,7 +21,7 @@
                 <span asp-validation-for="AssetTypeId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TagNumber" class="control-label">Tag Number</label>
+                <label asp-for="TagNumber" class="control-label"></label>
                 <input asp-for="TagNumber" class="form-control" />
                 <span asp-validation-for="TagNumber" class="text-danger"></span>
             </div>
@@ -43,12 +41,12 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SerialNumber" class="control-label">Serial Number</label>
+                <label asp-for="SerialNumber" class="control-label"></label>
                 <input asp-for="SerialNumber" class="form-control" />
                 <span asp-validation-for="SerialNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Add New Asset" class="btn btn-primary" />
+                <input type="submit" value="Update Values" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -56,6 +54,5 @@
     <div>
         <a class="btn btn-secondary" asp-action="Index">Back to List</a>
     </div>
+
 </div>
-
-

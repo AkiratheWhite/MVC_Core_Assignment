@@ -1,5 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+@import url(https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap);
 
 a.navbar-brand {
   white-space: normal;
@@ -59,13 +60,42 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: "Nunito Sans"; /*Tony's CSS*/
 }
 .footer {
   position: absolute;
   bottom: 0;
+  height: 60px; /*Tony's CSS'*/
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  /*line-height: 60px;*/ /* Vertically center the text there */
 }
+
+/*Tony's Custom CSS*/
+
+/*Start of Layout*/
+header {
+    background-color: #000000;
+    min-height: 60px;
+}
+
+footer {
+    background-color: #000000;
+}
+
+main {
+    overflow: auto;
+    min-height: calc(100vh - 60px - 60px);
+}
+
+/*Start of Home Page*/
+/*#HomePage {
+    margin: auto;
+}*/
+
+/*Start of Asset Page*/
+/** {
+    border: 1px solid #f00 !important;
+}*/

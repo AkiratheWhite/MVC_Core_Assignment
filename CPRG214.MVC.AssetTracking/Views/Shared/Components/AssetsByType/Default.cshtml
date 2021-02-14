@@ -4,12 +4,12 @@
 }
 
 <div class="text-center">
-    <h3 class="display-4">Greetings, administrator.</h3>
-    <table class="table">
+    <table id="assetTable" class="table col-12">
         <thead>
             <tr>
+                <th class="col-1"></th>
                 <th class="col-2">@Html.DisplayNameFor(model => model.TagNumber)</th>
-                <th class="col-6">@Html.DisplayNameFor(model => model.Description)</th>
+                <th class="col-4">@Html.DisplayNameFor(model => model.Description)</th>
                 <th class="col-2">@Html.DisplayNameFor(model => model.AssetType)</th>
                 <th class="col-2">@Html.DisplayNameFor(model => model.SerialNumber)</th>
             </tr>
@@ -17,12 +17,13 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td class="col-2">@Html.DisplayFor(modelItem => item.TagNumber)</td>
-                    <td class="col-6">@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td class="col-2">@Html.DisplayFor(modelItem => item.AssetType)</td>
-                    <td class="col-2">@Html.DisplayFor(modelItem => item.SerialNumber)</td>
-                </tr>
+            <tr>
+                <td class="col-1">@Html.ActionLink("Edit", "Edit", new { id = item.Id }) </td>
+                <td class="col-2">@Html.DisplayFor(modelItem => item.TagNumber)</td>
+                <td class="col-5">@Html.DisplayFor(modelItem => item.Description)</td>
+                <td class="col-2">@Html.DisplayFor(modelItem => item.AssetType)</td>
+                <td class="col-2">@Html.DisplayFor(modelItem => item.SerialNumber)</td>
+            </tr>
             }
         </tbody>
     </table>
