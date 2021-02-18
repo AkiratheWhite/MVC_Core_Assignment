@@ -76,9 +76,85 @@ body {
 /*Tony's Custom CSS*/
 
 /*Start of Layout*/
+#RenderBody {
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+body {
+    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url("../img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
 header {
     background-color: #000000;
     min-height: 60px;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #FFFFFF;
+}
+
+.navbar > div.container {
+    justify-content: space-around;
+}
+
+.navbar > div.container li {
+    transition: background-color ease 0.5s;
+}
+
+.navbar > div.container li > a {
+    transition: color ease 0.5s;
+}
+
+.navbar > div.container li:hover {
+    background-color: #FF0000;
+}
+
+.navbar > div.container li > a:hover {
+    color: #000000!important;
+}
+
+.navbar-nav li:first-child {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.navbar-nav li:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.navbar-collapse {
+    padding: .5rem 1rem;
+}
+
+.navbar-brand img {
+    margin-top: 7px;
+    height: 40px;
+    width: auto;
+}
+.dropdown {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    background-color: #000000;
+    width: 100%;
+}
+
+.dropdown-menu a {
+    transition: background-color ease 0.5s, color ease 0.5s;
+}
+
+.dropdown-menu a:hover {
+    color: #000000 !important;
+    background-color: #DCDCDC;
 }
 
 footer {
@@ -91,11 +167,26 @@ main {
 }
 
 /*Start of Home Page*/
-/*#HomePage {
+#HomePage {
     margin: auto;
-}*/
+}
+
+.display-item {
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    transition: transform ease 0.5s, background-color ease 0.5s;
+}
+
+.display-item:hover {
+    transform: scale(1.25);
+    background-color: #DCDCDC;
+    transition: transform ease 0.5s, background-color ease 0.5s;
+}
 
 /*Start of Asset Page*/
-/** {
-    border: 1px solid #f00 !important;
-}*/
+tr {
+    transition: background-color ease-out 0.5s;
+}
+tr:hover {
+    background-color: #DCDCDC;
+}

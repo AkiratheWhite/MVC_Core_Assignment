@@ -34,7 +34,7 @@
         function FilterByType() {
             $("#AssetLookup").change(function () {
                 var assetTypeID = $("#AssetLookup").val();
-
+                //When we change the AssetType ID, an AJAX request is sent to refresh the ViewComponent.
                 $.ajax(
                     {
                         method: 'GET',

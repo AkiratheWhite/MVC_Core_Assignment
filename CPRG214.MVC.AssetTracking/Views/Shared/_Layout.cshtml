@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Asset Tracking</title>
+    <title>@ViewData["Title"] - Asset Management</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -11,19 +11,36 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark box-shadow">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Asset Tracking</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png"/></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item text-center">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item text-center col">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item text-center">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Asset" asp-action="Index">Assets</a>
+                        <li class="nav-item text-center col d-block d-md-none">
+                            <a class="nav-link" asp-area="" asp-controller="Asset" asp-action="Index">View Assets</a>
                         </li>
+                        <li class="nav-item text-center col d-block d-md-none">
+                            <a class="nav-link" asp-area="" asp-controller="Asset" asp-action="AddAsset">Add Asset</a>
+                        </li>
+                        <li class="nav-item text-center col d-block d-md-none">
+                            <a class="nav-link" asp-area="" asp-controller="AssetType" asp-action="AddAssetType">Add Asset Type</a>
+                        </li>
+                        <li class="nav-item dropdown col text-light d-none d-md-block">
+                            <a class="nav-link dropdown-toggle text-center" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Assets
+                            </a>
+                            <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" asp-area="" asp-controller="Asset" asp-action="Index">View Assets</a>
+                                <a class="nav-link" asp-area="" asp-controller="Asset" asp-action="AddAsset">Add Asset</a>
+                                <a class="nav-link" asp-area="" asp-controller="AssetType" asp-action="AddAssetType">Add Asset Type</a>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -37,7 +54,7 @@
 
     <footer class="border-top footer text-light d-flex justify-content-center align-items-center">
         <div class="container text-center">
-            &copy; 2021 - CPRG214.MVC.AssetTracking - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Fregata Industries LLC.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

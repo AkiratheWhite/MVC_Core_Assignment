@@ -2,20 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div id="HomePage" class="d-flex flex-column justify-content-center align-self-center">
-    <div class="row text-center m-0">
+<div id="HomePage" class="align-self-center">
+    <h2 class="text-center">Greetings, administrator.</h2>
 
-        <div class="col-12 col-md-3 pt-3 pb-3 text-md-left">
-            <h2>Greetings, administrator.</h2>
-        </div>
+    <hr />
 
-        <div class="col-12 col-md-4 pt-3 pb-3">
+    <div class="row text-center m-0 justify-content-around">
+
+        <div class="display-item col-12 col-md-5 pt-3 pb-3">
             <h4>View All Assets</h4>
             <p>Display a list of currently tracked assets.</p>
             <a class="btn btn-primary" href="@Url.Action("Index", "Asset")">View Assets</a>
         </div>
 
-        <div class="col-12 col-md-5 pt-3 pb-3">
+        <div class="display-item col-12 col-md-5 pt-3 pb-3">
             <h4>Add New Assets/Asset Types</h4>
             <p>Add new records to the database.</p>
             <div class="d-flex flex-row justify-content-around">
